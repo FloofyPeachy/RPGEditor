@@ -1,0 +1,15 @@
+﻿<Window x:Class="StartupScreen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RPGEditor"
+        mc:Ignorable="d"
+        Title="RPGEditor" Height="300" Width="479">
+    <Grid>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="115,10,0,0" TextWrapping="Wrap" Text="RPGEditor" VerticalAlignment="Top" FontSize="36"/>
+        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="275,35,0,0" TextWrapping="Wrap" Text="Create and edit RPG Maker Mods!" VerticalAlignment="Top" Width="188"/>
+        <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Margin="130,90,0,0" TextWrapping="Wrap" Text="Please note that this is a program created by a fan for customizing games." VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>

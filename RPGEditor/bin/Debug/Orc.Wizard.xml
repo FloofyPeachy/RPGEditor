@@ -1,0 +1,127 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Orc.Wizard</name>
+    </assembly>
+    <members>
+        <member name="T:Orc.Wizard.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Orc.Wizard.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Orc.Wizard.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Orc.Wizard.Properties.Resources.Wizard_AreYouSureYouWantToCancelWizard">
+            <summary>
+              Looks up a localized string similar to Are you sure you want to cancel the wizard?.
+            </summary>
+        </member>
+        <member name="P:Orc.Wizard.Properties.Resources.Wizard_Back">
+            <summary>
+              Looks up a localized string similar to &lt; Back.
+            </summary>
+        </member>
+        <member name="P:Orc.Wizard.Properties.Resources.Wizard_Cancel">
+            <summary>
+              Looks up a localized string similar to Cancel.
+            </summary>
+        </member>
+        <member name="P:Orc.Wizard.Properties.Resources.Wizard_Finish">
+            <summary>
+              Looks up a localized string similar to Finish.
+            </summary>
+        </member>
+        <member name="P:Orc.Wizard.Properties.Resources.Wizard_Next">
+            <summary>
+              Looks up a localized string similar to Next &gt;.
+            </summary>
+        </member>
+        <member name="P:Orc.Wizard.Properties.Resources.Wizard_OptionalWizardStep">
+            <summary>
+              Looks up a localized string similar to This step is optional, feel free to skip this page by going to the next page.
+            </summary>
+        </member>
+        <member name="P:Orc.Wizard.Properties.Resources.Wizard_SummaryDescription">
+            <summary>
+              Looks up a localized string similar to Below is a summary of the wizard..
+            </summary>
+        </member>
+        <member name="P:Orc.Wizard.Properties.Resources.Wizard_SummaryTitle">
+            <summary>
+              Looks up a localized string similar to Summary.
+            </summary>
+        </member>
+        <member name="T:Orc.Wizard.Controls.BreadcrumbItem">
+            <summary>
+            BreadcrumbItem
+            </summary>
+        </member>
+        <member name="M:Orc.Wizard.Controls.BreadcrumbItem.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Orc.Wizard.MethodTimeLogger">
+            <summary>
+            Note: do not rename this class or put it inside a namespace.
+            </summary>
+        </member>
+        <member name="M:Orc.Wizard.MethodTimeLogger.Log(System.Reflection.MethodBase,System.Int64)">
+            <summary>
+            Used by MethodTimer.
+            </summary>
+            <param name="methodBase"></param>
+            <param name="milliseconds"></param>
+        </member>
+        <member name="M:Orc.Wizard.MethodTimeLogger.Log(System.Type,System.String,System.Int64)">
+            <summary>
+            Used by custom code.
+            </summary>
+            <param name="type"></param>
+            <param name="methodName"></param>
+            <param name="milliseconds"></param>
+        </member>
+        <member name="T:Orc.Wizard.ModuleInitializer">
+            <summary>
+            Used by the ModuleInit. All code inside the Initialize method is ran as soon as the assembly is loaded.
+            </summary>
+        </member>
+        <member name="M:Orc.Wizard.ModuleInitializer.Initialize">
+            <summary>
+            Initializes the module.
+            </summary>
+        </member>
+        <member name="T:Orc.Wizard.Views.SummaryWizardPageView">
+            <summary>
+            SummaryWizardPageView
+            </summary>
+        </member>
+        <member name="M:Orc.Wizard.Views.SummaryWizardPageView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Orc.Wizard.Views.WizardWindow">
+            <summary>
+            Interaction logic for WizardWindow.xaml
+            </summary>
+            <summary>
+            WizardWindow
+            </summary>
+        </member>
+        <member name="M:Orc.Wizard.Views.WizardWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+    </members>
+</doc>

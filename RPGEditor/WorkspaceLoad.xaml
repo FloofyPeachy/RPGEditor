@@ -1,0 +1,15 @@
+﻿<Window x:Class="WorkspaceLoad"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RPGEditor"
+        mc:Ignorable="d"
+        Title="Load a Workspace" Height="202" Width="414" WindowStyle="ToolWindow">
+    <Grid>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="30,45,0,0" TextWrapping="Wrap" Text="Project Folder:" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="111,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="285"/>
+        <Button x:Name="button" Content="Grab" HorizontalAlignment="Left" Height="27" Margin="150,135,0,0" VerticalAlignment="Top" Width="95"/>
+
+    </Grid>
+</Window>

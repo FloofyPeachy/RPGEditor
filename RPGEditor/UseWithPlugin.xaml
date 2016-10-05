@@ -1,0 +1,16 @@
+﻿<Window x:Class="UseWithPlugin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RPGEditor"
+        mc:Ignorable="d"
+        Title="UseWithPlugin" Height="237" Width="439" WindowStyle="None" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Choose which program(or plugin) to use with 'file' files." VerticalAlignment="Top" Width="400" FontSize="16"/>
+        <Separator HorizontalAlignment="Left" Height="15" Margin="0,36,0,0" VerticalAlignment="Top" Width="431"/>
+        <Rectangle x:Name="rec1" HorizontalAlignment="Left" Height="50" Margin="5,45,0,0" Stroke="#FF1494FF" VerticalAlignment="Top" Width="426" MouseUp="rec1_MouseUp" Fill="White"/>
+        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="92,56,0,0" TextWrapping="Wrap" Text="RPGEditor Built in Text Editor" VerticalAlignment="Top" FontSize="16"/>
+
+    </Grid>
+</Window>

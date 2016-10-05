@@ -1,0 +1,16 @@
+﻿<Window x:Class="CreateNewWorkspace"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RPGEditor"
+        mc:Ignorable="d"
+        Title="Create a New Workspace" Height="396.694" Width="612.396">
+    <Grid>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="166,10,0,0" TextWrapping="Wrap" Text="Create a new Workspace" VerticalAlignment="Top" FontSize="20" FontFamily="Leelawadee UI"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="118,83,0,0" TextWrapping="Wrap" Text="SomekindOfWorkspace" VerticalAlignment="Top" Width="299"/>
+        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="10,85,0,0" TextWrapping="Wrap" Text="Workspace Name:" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checkBox" Content="Copy Game:" HorizontalAlignment="Left" Margin="106,128,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>

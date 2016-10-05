@@ -1,0 +1,47 @@
+<Window x:Class="SplashScreen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RPGEditor"
+        Width="557"
+        Height="266"
+        Title="SplashScreen"
+        mc:Ignorable="d"
+        WindowStyle="None">
+  <Grid>
+    <Image Width="876"
+           Height="508"
+           Margin="0,0,-13,-8"
+           HorizontalAlignment="Right"
+           VerticalAlignment="Bottom"
+           Source="file:///C:/Users/mensa.DESKTOP-LP8HJ4U/Downloads/mvcapture.png"
+           Grid.Column="0"
+           Grid.Row="0" />
+    <Image Width="201"
+           Height="242"
+           Margin="0,16,0,0"
+           HorizontalAlignment="Left"
+           VerticalAlignment="Top"
+           Source="file:///C:/Users/mensa.DESKTOP-LP8HJ4U/Downloads/rpgeditorlogo.png"
+           Grid.Column="0"
+           Grid.Row="0" />
+    <TextBlock Margin="197,8,0,0"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               FontFamily="Myriad Hebrew"
+               FontSize="31"
+               Grid.Column="0"
+               Grid.Row="0">
+      <Run Text="RPG Editor" />
+    </TextBlock>
+    <TextBlock Margin="209,55,0,0" x:Name="HelloText"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Text="Version: 1.0.0.0"
+               Grid.Column="0"
+               Grid.Row="0">
+      <Run Text="TextBlock" />
+    </TextBlock>
+  </Grid>
+</Window>
