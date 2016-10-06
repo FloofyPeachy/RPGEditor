@@ -53,15 +53,14 @@
             </fluent:RibbonTabItem>
 
 
-            <fluent:RibbonTabItem Header="Run" x:Name="TestGameRibbion"  >
+            <fluent:RibbonTabItem Header="Run" x:Name="TestGameRibbion"  IsSelected="True">
 
                 <fluent:RibbonGroupBox Header="Test Game" Height="84" Width="243" >
 
 
                     <fluent:Button Header="Launch" x:Name="LaunchGame1"
                               IsEnabled="false" Click="LaunchGame1_Click"/>
-
-                    <fluent:CheckBox Header="Launch in Game Runner Window" />
+                    <fluent:Button x:Name="StopButton"  Header="Stop" IsEnabled="False" Click="StopButton_Click"/>
                 </fluent:RibbonGroupBox>
             </fluent:RibbonTabItem>
 

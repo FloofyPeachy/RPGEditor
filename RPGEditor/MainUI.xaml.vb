@@ -20,6 +20,7 @@ Public Class MainUI
     Dim strpath As String = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().CodeBase)
     Dim strpathlocal = New Uri(strpath).LocalPath
     Dim installdir = strpath
+    Public process1 As Process
     Public Sub New()
 
         ' This call is required by the designer.
@@ -37,6 +38,7 @@ Public Class MainUI
         SaveButton.LargeIcon = strpath + "\save.png"
         LaunchGame1.LargeIcon = strpath + "\run.png"
         AboutButton.LargeIcon = strpath + "\about.png"
+        StopButton.LargeIcon = strpath + "\stop.png"
     End Sub
     Public Sub autosaveDispatcherTimer_Click()
         textBlock.Text = "Saved workspace."
@@ -55,6 +57,7 @@ Public Class MainUI
 
             projectS = File.ReadLines(OpenFileDialog1.FileName)(0)
             LoadDirectories()
+
         ElseIf result = Forms.DialogResult.Cancel Then
 
 
@@ -292,6 +295,8 @@ Public Class MainUI
                 fStream.Close()
 
             End If
+        ElseIf item.Header.ToString.Contains(".exe") Then
+            RunGame()
         Else
             Dim fileName As String = My.Computer.FileSystem.GetFiles(projectS, FileIO.SearchOption.SearchAllSubDirectories, item.Header.ToString)(0)
             Dim range As TextRange
@@ -380,8 +385,6 @@ Public Class MainUI
     End Sub
     Public Sub ProcessExited()
 
-        toolBar.Background = New SolidColorBrush(ColorConverter.ConvertFromString("#FF4283CD"))
-
     End Sub
 
     Private Sub CloseWorkspace_Click(sender As Object, e As RoutedEventArgs)
@@ -406,26 +409,26 @@ Public Class MainUI
     End Sub
 
     Private Sub LaunchGame1_Click(sender As Object, e As RoutedEventArgs)
-        Dim window12 = New Window1
-        Window1.gamepath = IO.Path.Combine(projectS, "Game.exe")
-        Threading.Thread.Sleep(2000)
-        window12.Show()
-
-        Dim strPath As String = System.IO.Path.GetDirectoryName(
-            System.Reflection.Assembly.GetExecutingAssembly().CodeBase)
-
-        Try
-
-            toolBar.Background = New SolidColorBrush(Color.FromRgb(255, 108, 0))
-            textBlock.Text = "Game Running."
-
-            LaunchGame1.IsEnabled = False
-
-        Catch
-
-        End Try
+        RunGame()
     End Sub
+    Public Sub RunGame()
+        process1 = Process.Start(projectS + "\Game.exe")
 
+        toolBar.Background = New SolidColorBrush(Color.FromRgb(255, 108, 0))
+        LaunchGame1.IsEnabled = False
+        StopButton.IsEnabled = True
+        process1.EnableRaisingEvents = True
+        AddHandler process1.Exited, Sub()
+
+                                        Me.Dispatcher.Invoke(System.Windows.Threading.DispatcherPriority.SystemIdle, TimeSpan.FromSeconds(1), New Action(Sub() toolBar.Background = New SolidColorBrush(ColorConverter.ConvertFromString("#FF4283CD"))))
+
+                                        Me.Dispatcher.Invoke(DispatcherPriority.SystemIdle, TimeSpan.FromSeconds(1), New Action(Sub() StopButton.IsEnabled = False))
+                                        Me.Dispatcher.Invoke(DispatcherPriority.SystemIdle, TimeSpan.FromSeconds(1), New Action(Sub() LaunchGame1.IsEnabled = True))
+
+
+
+                                    End Sub
+    End Sub
     Private Sub SaveButton_Click(sender As Object, e As RoutedEventArgs)
         Dim item As TreeViewItem = TryCast(treeView1.SelectedItem, TreeViewItem)
         Dim sb = My.Computer.FileSystem.GetFiles(projectS, FileIO.SearchOption.SearchAllSubDirectories, item.Header.ToString)(0)
@@ -515,5 +518,21 @@ Public Class MainUI
     Private Sub AddFileButton_Click(sender As Object, e As RoutedEventArgs)
 
 
+    End Sub
+
+    Private Sub StopButton_Click(sender As Object, e As RoutedEventArgs)
+
+        For Each p As Process In System.Diagnostics.Process.GetProcessesByName("Game")
+            Try
+                p.Kill()
+                ' possibly with a timeout
+                p.WaitForExit()
+                ' process was terminating or can't be terminated - deal with it
+            Catch winException As Win32Exception
+                ' process has already exited - might be able to let this one go
+            Catch invalidException As InvalidOperationException
+            End Try
+        Next
+        ProcessExited()
     End Sub
 End Class
