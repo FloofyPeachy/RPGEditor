@@ -1,0 +1,313 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+RPGEditor
+</name>
+</assembly>
+<members>
+<member name="T:RPGEditor.My.MyWpfExtension">
+ <summary>
+ Module used to define the properties that are available in the My Namespace for WPF
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="P:RPGEditor.My.MyWpfExtension.Application">
+ <summary>
+ Returns the application object for the running application
+ </summary>
+</member>
+<member name="P:RPGEditor.My.MyWpfExtension.Computer">
+ <summary>
+ Returns information about the host computer.
+ </summary>
+</member>
+<member name="P:RPGEditor.My.MyWpfExtension.User">
+ <summary>
+ Returns information for the current user.  If you wish to run the application with the current 
+ Windows user credentials, call My.User.InitializeWithWindowsUser().
+ </summary>
+</member>
+<member name="P:RPGEditor.My.MyWpfExtension.Log">
+ <summary>
+ Returns the application log. The listeners can be configured by the application's configuration file.
+ </summary>
+</member>
+<member name="P:RPGEditor.My.MyWpfExtension.Windows">
+ <summary>
+ Returns the collection of Windows defined in the project.
+ </summary>
+</member>
+<member name="T:RPGEditor.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:RPGEditor.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:RPGEditor.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="P:RPGEditor.My.Resources.Resources.about">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:RPGEditor.My.Resources.Resources.closeworkspace">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:RPGEditor.My.Resources.Resources.createnewworkspace">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:RPGEditor.My.Resources.Resources.load">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:RPGEditor.My.Resources.Resources.loadworkspace">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:RPGEditor.My.Resources.Resources.run">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:RPGEditor.My.Resources.Resources.save">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:RPGEditor.My.Resources.Resources.settings">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="T:RPGEditor.About">
+<summary>
+About
+</summary>
+</member>
+<member name="M:RPGEditor.About.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
+<member name="T:RPGEditor.CopyProject">
+<summary>
+CopyProject
+</summary>
+</member>
+<member name="M:RPGEditor.CopyProject.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
+<member name="T:RPGEditor.CreateNewWorkspace">
+<summary>
+CreateNewWorkspace
+</summary>
+</member>
+<member name="M:RPGEditor.CreateNewWorkspace.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
+<member name="T:RPGEditor.CreateWorkspace">
+<summary>
+CreateWorkspace
+</summary>
+</member>
+<member name="M:RPGEditor.CreateWorkspace.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
+<member name="T:RPGEditor.ExportMod">
+<summary>
+ExportMod
+</summary>
+</member>
+<member name="M:RPGEditor.ExportMod.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
+<member name="T:RPGEditor.FirstTimeSetupWorkspace">
+<summary>
+FirstTimeSetupWorkspace
+</summary>
+</member>
+<member name="M:RPGEditor.FirstTimeSetupWorkspace.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
+<member name="T:RPGEditor.LoadAWorkspace">
+<summary>
+LoadAWorkspace
+</summary>
+</member>
+<member name="M:RPGEditor.LoadAWorkspace.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
+<member name="T:RPGEditor.MainTextEditor">
+<summary>
+MainTextEditor
+</summary>
+</member>
+<member name="M:RPGEditor.MainTextEditor.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
+<member name="T:RPGEditor.MainUI">
+<summary>
+MainUI
+</summary>
+</member>
+<member name="M:RPGEditor.MainUI.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
+<member name="T:RPGEditor.MediaPlayer">
+<summary>
+MediaPlayer
+</summary>
+</member>
+<member name="M:RPGEditor.MediaPlayer.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
+<member name="T:RPGEditor.ModdedFiles">
+<summary>
+ModdedFiles
+</summary>
+</member>
+<member name="M:RPGEditor.ModdedFiles.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
+<member name="T:RPGEditor.PluginList">
+<summary>
+PluginList
+</summary>
+</member>
+<member name="M:RPGEditor.PluginList.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
+<member name="T:RPGEditor.Rib1">
+<summary>
+Rib1
+</summary>
+</member>
+<member name="M:RPGEditor.Rib1.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
+<member name="T:RPGEditor.SplashScreen">
+<summary>
+SplashScreen
+</summary>
+</member>
+<member name="M:RPGEditor.SplashScreen.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
+<member name="T:RPGEditor.StartupScreen">
+<summary>
+StartupScreen
+</summary>
+</member>
+<member name="M:RPGEditor.StartupScreen.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
+<member name="T:RPGEditor.UseWithPlugin">
+<summary>
+UseWithPlugin
+</summary>
+</member>
+<member name="M:RPGEditor.UseWithPlugin.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
+<member name="T:RPGEditor.Window1">
+<summary>
+Window1
+</summary>
+</member>
+<member name="M:RPGEditor.Window1.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
+<member name="T:RPGEditor.WorkspaceLoad">
+<summary>
+WorkspaceLoad
+</summary>
+</member>
+<member name="M:RPGEditor.WorkspaceLoad.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
+<member name="T:RPGEditor.Application">
+<summary>
+Application
+</summary>
+</member>
+<member name="M:RPGEditor.Application.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
+<member name="M:RPGEditor.Application.Main">
+<summary>
+Application Entry Point.
+</summary>
+</member>
+<member name="T:RPGEditor.MainWindow">
+<summary>
+MainWindow
+</summary>
+</member>
+<member name="M:RPGEditor.MainWindow.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
+<member name="T:RPGEditor.MyFirstRibbonProject.MyFirstWindow">
+<summary>
+MyFirstWindow
+</summary>
+</member>
+<member name="M:RPGEditor.MyFirstRibbonProject.MyFirstWindow.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
+</members>
+</doc>

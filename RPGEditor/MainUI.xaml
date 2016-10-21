@@ -6,21 +6,24 @@
         xmlns:local="clr-namespace:RPGEditor"
                    xmlns:fluent="urn:fluent-ribbon"
         mc:Ignorable="d"
-        Title="RPGEditor UI Beta" Height="673.136" Width="1221.363" Loaded="Window_Loaded">
+        Title="RPGEditor UI Beta" Height="763.136" Width="1383.363" Loaded="Window_Loaded">
 
     <Grid>
 
-        <ToolBar x:Name="toolBar" HorizontalAlignment="Left" Margin="0,619,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.625,0.923" Width="1213" Height="22" Background="#FF0077FF"/>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="21,619,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
-        <TreeView x:Name="treeView1" HorizontalAlignment="Left" Height="508" VerticalAlignment="Top" Width="265" Margin="0,111,0,0" MouseDoubleClick="treeView1_MouseDoubleClick" SelectedItemChanged="treeView1_SelectedItemChanged" MouseRightButtonDown="treeView1_MouseRightButtonDown">
+        <ToolBar x:Name="toolBar" HorizontalAlignment="Left" Margin="2,708,-1,0" VerticalAlignment="Bottom" RenderTransformOrigin="0.625,0.923" Width="1374" Height="22" Background="#FF0077FF">
+
+        </ToolBar>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="21,709,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <TreeView x:Name="treeView1" HorizontalAlignment="Left" Height="584" VerticalAlignment="Top" Width="266" Margin="1108,130,0,0" MouseDoubleClick="treeView1_MouseDoubleClick" SelectedItemChanged="treeView1_SelectedItemChanged" MouseRightButtonDown="treeView1_MouseRightButtonDown" Background="White">
             <TreeView.ContextMenu>
                 <ContextMenu>
                     <MenuItem x:Name="DeleteItemButton" Header="Delete Selected File" Click="DeleteItemButton_Click"/>
                     <MenuItem x:Name="AddFileButton" Header="Add Existing File" Click="AddFileButton_Click"/>
+                    <MenuItem x:Name="MarkAsMod" Header="Mark as Modded" Click="MarkAsMod_Click"/>
                 </ContextMenu>
             </TreeView.ContextMenu>
         </TreeView>
-        <fluent:Ribbon HorizontalAlignment="Left" Height="109" Margin="0,-3,0,0" VerticalAlignment="Top" Width="1213">
+        <fluent:Ribbon HorizontalAlignment="Left" Height="109" Margin="0,-3,0,0" VerticalAlignment="Top" Width="1372" >
 
             <fluent:Ribbon.ContextualGroups>
                 <fluent:RibbonContextualTabGroup x:Name="tabGroup1"
@@ -30,8 +33,9 @@
 
             </fluent:Ribbon.ContextualGroups>
 
+
             <fluent:RibbonTabItem Header="Workspace" >
-                <fluent:RibbonGroupBox Header="Workspace" Height="84" Width="231">
+                <fluent:RibbonGroupBox Header="Workspace" Height="84" Width="279">
                     <fluent:Button x:Name="LoadWorkspace" Header="Load" 
                     Width="62" Click="LoadWorkspace_Click" Background="{x:Null}"/>
                     <fluent:Button x:Name="CloseWorkspaceButton" Header="Close" IsEnabled="false"
@@ -40,22 +44,22 @@
                                 Click="WorkspaceSettingsButton_Click"/>
                     <fluent:Button x:Name="WorkspaceCreateButton" Header="New" 
                                  />
-
+                    <fluent:Button x:Name="ExportModButton" Header="Export" Click="ExportModButton_Click" IsEnabled="False"/>
                 </fluent:RibbonGroupBox>
             </fluent:RibbonTabItem>
 
             <fluent:RibbonTabItem Header="File" >
                 <fluent:RibbonGroupBox Header="Group" Height="84" Width="440">
 
-                    <fluent:Button Header="Save"  x:Name="SaveButton"
+                    <fluent:Button Header="Save"  x:Name="SaveButton" IsEnabled="false"
                                Click="SaveButton_Click"/>
                 </fluent:RibbonGroupBox>
             </fluent:RibbonTabItem>
 
 
-            <fluent:RibbonTabItem Header="Run" x:Name="TestGameRibbion"  IsSelected="True">
+            <fluent:RibbonTabItem Header="Run" x:Name="TestGameRibbion">
 
-                <fluent:RibbonGroupBox Header="Test Game" Height="84" Width="243" >
+                <fluent:RibbonGroupBox Header="Test Game" Height="84" Width="100" >
 
 
                     <fluent:Button Header="Launch" x:Name="LaunchGame1"
@@ -63,12 +67,18 @@
                     <fluent:Button x:Name="StopButton"  Header="Stop" IsEnabled="False" Click="StopButton_Click"/>
                 </fluent:RibbonGroupBox>
             </fluent:RibbonTabItem>
-
+            <fluent:RibbonTabItem  Header="Plugins" IsSelected="True">
+                <fluent:RibbonGroupBox Header="Plugins" Height="84" Width="195">
+                    <fluent:Button Header="ModPatcher" x:Name="ModPatcherButton" Click="ModPatcherButton_Click"/>
+                </fluent:RibbonGroupBox>
+            </fluent:RibbonTabItem>
 
             <fluent:RibbonTabItem Header="Help">
                 <fluent:RibbonGroupBox Header="Help" Height="84" Width="385">
                     <fluent:Button x:Name="AboutButton" Header="About"
                                   Click="AboutButton_Click"/>
+                    <fluent:Button x:Name="CrazyWindowButton" Header="Launch Crazy Menu"
+                                  Click="CrazyWindowButton_Click"/>
                 </fluent:RibbonGroupBox>
 
 
@@ -81,11 +91,13 @@
 
             </fluent:RibbonTabItem>
 
+
+
         </fluent:Ribbon>
-        <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="508" Margin="270,111,0,0" VerticalAlignment="Top" Width="943">
+        <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="601" Margin="1,108,0,0" VerticalAlignment="Top" Width="1104">
             <TabItem Header="Text Editor">
                 <Grid Background="#FFE5E5E5">
-                    <RichTextBox x:Name="RichTextBox1" HorizontalAlignment="Left" Height="480"  VerticalAlignment="Top" Width="937"/>
+                    <RichTextBox x:Name="RichTextBox1" HorizontalAlignment="Left" Height="574"  VerticalAlignment="Top" Width="1100" TextChanged="RichTextBox1_TextChanged" Margin="0,0,-2,-1"/>
 
                 </Grid>
             </TabItem>
@@ -112,6 +124,7 @@
 
 
         </TabControl>
+        <ProgressBar x:Name="progressbar1" HorizontalAlignment="Left" Height="15" Margin="949,623,0,0" VerticalAlignment="Top" Width="235" RenderTransformOrigin="-0.03,8.1" Background="{x:Null}" Value="-1" BorderBrush="{x:Null}" Foreground="#FF2A699E"/>
 
     </Grid>
 </fluent:RibbonWindow>

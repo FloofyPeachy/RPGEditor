@@ -114,6 +114,16 @@ CopyProject
 InitializeComponent
 </summary>
 </member>
+<member name="T:RPGEditor.CrazyWindow">
+<summary>
+CrazyWindow
+</summary>
+</member>
+<member name="M:RPGEditor.CrazyWindow.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
 <member name="T:RPGEditor.CreateNewWorkspace">
 <summary>
 CreateNewWorkspace
@@ -150,6 +160,16 @@ FirstTimeSetupWorkspace
 </summary>
 </member>
 <member name="M:RPGEditor.FirstTimeSetupWorkspace.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
+<member name="T:RPGEditor.HelpWindow">
+<summary>
+HelpWindow
+</summary>
+</member>
+<member name="M:RPGEditor.HelpWindow.InitializeComponent">
 <summary>
 InitializeComponent
 </summary>
@@ -210,16 +230,6 @@ PluginList
 </summary>
 </member>
 <member name="M:RPGEditor.PluginList.InitializeComponent">
-<summary>
-InitializeComponent
-</summary>
-</member>
-<member name="T:RPGEditor.Rib1">
-<summary>
-Rib1
-</summary>
-</member>
-<member name="M:RPGEditor.Rib1.InitializeComponent">
 <summary>
 InitializeComponent
 </summary>

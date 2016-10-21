@@ -55,8 +55,6 @@ D:\RPGEditor\RPGEditor\RPGEditor\bin\Debug\Fluent.xml
 D:\RPGEditor\RPGEditor\RPGEditor\obj\Debug\RWindow.baml
 D:\RPGEditor\RPGEditor\RPGEditor\obj\Debug\RWindow.g.vb
 D:\RPGEditor\RPGEditor\RPGEditor\obj\Debug\MainUI.baml
-D:\RPGEditor\RPGEditor\RPGEditor\obj\Debug\Rib1.g.vb
-D:\RPGEditor\RPGEditor\RPGEditor\obj\Debug\Rib1.baml
 D:\RPGEditor\RPGEditor\RPGEditor\obj\Debug\Themes\Metro\Metro.MSControls.Core.Implicit.baml
 D:\RPGEditor\RPGEditor\RPGEditor\obj\Debug\Themes\Metro\Metro.MSControls.Toolkit.Implicit.baml
 D:\RPGEditor\RPGEditor\RPGEditor\obj\Debug\Themes\Metro\Styles.Shared.baml
@@ -105,8 +103,15 @@ D:\RPGEditor\RPGEditor\RPGEditor\obj\Debug\CreateNewWorkspace.g.vb
 D:\RPGEditor\RPGEditor\RPGEditor\obj\Debug\CreateNewWorkspace.baml
 D:\RPGEditor\RPGEditor\RPGEditor\obj\Debug\About.g.vb
 D:\RPGEditor\RPGEditor\RPGEditor\obj\Debug\About.baml
-D:\RPGEditor\RPGEditor\RPGEditor\obj\Debug\RPGEditor.exe.manifest
-D:\RPGEditor\RPGEditor\RPGEditor\obj\Debug\RPGEditor.TrustInfo.xml
 D:\RPGEditor\RPGEditor\RPGEditor\bin\Debug\RPGEditor.exe.manifest
 D:\RPGEditor\RPGEditor\RPGEditor\bin\Debug\RPGEditor.application
+D:\RPGEditor\RPGEditor\RPGEditor\obj\Debug\RPGEditor.TrustInfo.xml
+D:\RPGEditor\RPGEditor\RPGEditor\obj\Debug\RPGEditor.exe.manifest
 D:\RPGEditor\RPGEditor\RPGEditor\obj\Debug\RPGEditor.application
+D:\RPGEditor\RPGEditor\RPGEditor\bin\Debug\MahApps.Metro.dll
+D:\RPGEditor\RPGEditor\RPGEditor\bin\Debug\MahApps.Metro.pdb
+D:\RPGEditor\RPGEditor\RPGEditor\bin\Debug\MahApps.Metro.xml
+D:\RPGEditor\RPGEditor\RPGEditor\obj\Debug\CrazyWindow.g.vb
+D:\RPGEditor\RPGEditor\RPGEditor\obj\Debug\CrazyWindow.baml
+D:\RPGEditor\RPGEditor\RPGEditor\obj\Debug\HelpWindow.g.vb
+D:\RPGEditor\RPGEditor\RPGEditor\obj\Debug\HelpWindow.baml

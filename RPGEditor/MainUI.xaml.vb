@@ -1,6 +1,7 @@
 ﻿Imports System.Collections.Specialized
 Imports System.ComponentModel
 Imports System.IO
+Imports System.IO.Compression
 Imports System.Windows.Forms
 Imports System.Windows.Media.Animation
 Imports System.Windows.Threading
@@ -17,11 +18,12 @@ Public Class MainUI
     Dim rootElementBrush As SolidColorBrush
     Dim animation As ColorAnimation
     Dim OpenFileDialog1 As New OpenFileDialog
-    Dim strpath As String = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().CodeBase)
+    Dim strpath As String = New Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().CodeBase)).LocalPath
     Dim strpathlocal = New Uri(strpath).LocalPath
     Dim installdir = strpath
     Public process1 As Process
     Public Sub New()
+
 
         ' This call is required by the designer.
 
@@ -31,14 +33,18 @@ Public Class MainUI
         ' Add any initialization after the InitializeComponent() call.
         autosaveDispatcherTimer.Start()
         ' Add any initialization after the InitializeComponent() call.
-        LoadWorkspace.LargeIcon = strpathlocal + "\load.png"
-        CloseWorkspaceButton.LargeIcon = strpathlocal + "\closeworkspace.png"
-        WorkspaceSettingsButton.LargeIcon = strpathlocal + "\settings.png"
-        WorkspaceCreateButton.LargeIcon = strpathlocal + "\createnewworkspace.png"
-        SaveButton.LargeIcon = strpath + "\save.png"
-        LaunchGame1.LargeIcon = strpath + "\run.png"
+        LoadWorkspace.LargeIcon = strpathlocal + "\material\create.png"
+        CloseWorkspaceButton.LargeIcon = strpathlocal + "\material\close.png"
+        WorkspaceSettingsButton.LargeIcon = strpathlocal + "\material\settings.png"
+        WorkspaceCreateButton.LargeIcon = strpathlocal + "\material\add.png"
+        SaveButton.LargeIcon = strpath + "\material\save.png"
+        LaunchGame1.LargeIcon = strpath + "\material\play.png"
         AboutButton.LargeIcon = strpath + "\about.png"
-        StopButton.LargeIcon = strpath + "\stop.png"
+        StopButton.LargeIcon = strpath + "\material\stop.png"
+        ExportModButton.LargeIcon = strpath + "\material\build.png"
+        If Environment.GetCommandLineArgs(0).ToLower() = "\batch" Then
+
+        End If
     End Sub
     Public Sub autosaveDispatcherTimer_Click()
         textBlock.Text = "Saved workspace."
@@ -47,9 +53,6 @@ Public Class MainUI
 
     Private Sub LoadWorkspace_Click(sender As Object, e As RoutedEventArgs)
 
-        ' This event handler was created by double-clicking the window in the designer.
-        ' It runs on the program's startup routine.
-        '
         OpenFileDialog1.Title = "Load a workspace file"
         OpenFileDialog1.Filter = "Workspace Files (*.rpgwork)|*.rpgwork|All files (*.*)|*.*"
         Dim result As DialogResult = OpenFileDialog1.ShowDialog()
@@ -71,6 +74,7 @@ Public Class MainUI
                 projectS = File.ReadLines(OpenFileDialog1.FileName)(0)
                 CloseWorkspaceButton.IsEnabled = True
                 LoadWorkspace.IsEnabled = False
+                ExportModButton.IsEnabled = True
             End If
 
         Else
@@ -86,7 +90,7 @@ Public Class MainUI
         System.Reflection.Assembly.GetExecutingAssembly().CodeBase)
 
         AddHandler Window1._process.Exited, AddressOf ProcessExited
-        e.Handled = True
+
         dispatchertimer1.Interval = New TimeSpan(0, 0, 5)
         bw.WorkerReportsProgress = True
         AddHandler bw.DoWork, AddressOf backgroundWorker1_DoWork
@@ -94,10 +98,13 @@ Public Class MainUI
         AddHandler bw.RunWorkerCompleted, AddressOf backgroundWorker1_RunWorkerCompleted
 
         AnimatePauseGame()
+
     End Sub
     Public Sub PluginItem_Click()
 
     End Sub
+
+
     Public Sub RefreshPlugins()
         Dim strPath As String = System.IO.Path.GetDirectoryName(
           System.Reflection.Assembly.GetExecutingAssembly().CodeBase)
@@ -116,7 +123,7 @@ Public Class MainUI
     End Sub
     Private Sub backgroundWorker1_RunWorkerCompleted(ByVal sender As System.Object,
   ByVal e As RunWorkerCompletedEventArgs)
-
+        MsgBox("Done")
     End Sub
     Public Sub LoadDirectories()
 
@@ -126,28 +133,44 @@ Public Class MainUI
         workspaceloaded = True
         LaunchGame1.IsEnabled = True
         Title = "RPGEditor UI Beta - " + New DirectoryInfo(projectS).Name
+        Console.WriteLine("Workspace: " + New DirectoryInfo(projectS).Name)
+
     End Sub
     Private Sub backgroundWorker1_DoWork(ByVal sender As System.Object,
    ByVal e As DoWorkEventArgs)
+
         Dim worker As BackgroundWorker = CType(sender, BackgroundWorker)
         Dim i As Integer
-
-        For i = 1 To 100
-            If (worker.CancellationPending = True) Then
-                e.Cancel = True
-                Exit For
-            Else
-                ' Perform a time consuming operation and report progress.
-
-                worker.ReportProgress(i * 1)
-            End If
+        Console.WriteLine("A mod export has been started.")
+        Dim exporttemp = projectS & "\exporttemp"
+        MkDir(projectS & "\exporttemp")
+        Console.WriteLine(exporttemp)
+        For Each moddedfile In File.ReadAllLines(projectS + "\moddedfiles.txt")
+            My.Computer.FileSystem.CopyFile(My.Computer.FileSystem.GetFiles(projectS, FileIO.SearchOption.SearchAllSubDirectories, moddedfile)(0), exporttemp & "\" & IO.Path.GetFileName(My.Computer.FileSystem.GetFiles(projectS, FileIO.SearchOption.SearchAllSubDirectories, moddedfile)(0)))
         Next
+
+
+
+
+
+        ZipFile.CreateFromDirectory(projectS & "\exporttemp", projectS & "\ModExport.zip")
+
+
+
     End Sub
 
+    Public Function GetFiles(dir As String, Optional search As String = "")
+        If search IsNot Nothing Then
+
+        End If
+        Dim output
+        output = My.Computer.FileSystem.GetFiles(dir, FileIO.SearchOption.SearchAllSubDirectories)(0)
+        Return output
+    End Function
     ' This event handler updates the progress.
     Private Sub backgroundWorker1_ProgressChanged(ByVal sender As System.Object,
     ByVal e As ProgressChangedEventArgs)
-
+        progressbar1.Value = e.ProgressPercentage
     End Sub
 
     Private Sub item_Expanded(sender As Object, e As RoutedEventArgs)
@@ -221,6 +244,7 @@ Public Class MainUI
         If Object.ReferenceEquals(directoryInfo, Nothing) Then
             Return
         End If
+
         For Each file In directoryInfo.GetFiles()
             Dim isHidden = (file.Attributes And FileAttributes.Hidden) = FileAttributes.Hidden
             Dim isSystem = (file.Attributes And FileAttributes.System) = FileAttributes.System
@@ -273,43 +297,53 @@ Public Class MainUI
     Private Sub treeView1_MouseDoubleClick(sender As Object, e As MouseButtonEventArgs)
 
         Dim item As TreeViewItem = TryCast(treeView1.SelectedItem, TreeViewItem)
+        If item.Header.ToString.Contains(".") Then
 
-        If item.Header.ToString.Contains(".png") Then
+            If item.Header.ToString.Contains(".png") Then
 
-            Dim sa = My.Computer.FileSystem.GetFiles(projectS, FileIO.SearchOption.SearchAllSubDirectories, item.Header.ToString)(0)
+                Dim sa = My.Computer.FileSystem.GetFiles(projectS, FileIO.SearchOption.SearchAllSubDirectories, item.Header.ToString)(0)
 
-            Dim converter = New ImageSourceConverter()
-            Image.Source = DirectCast(converter.ConvertFromString(sa), ImageSource)
+                Dim converter = New ImageSourceConverter()
+                image.Source = DirectCast(converter.ConvertFromString(sa), ImageSource)
+                SaveButton.IsEnabled = True
 
 
 
 
-        ElseIf item.Header.ToString.Contains(".json") Then
-            Dim fileName As String = My.Computer.FileSystem.GetFiles(projectS, FileIO.SearchOption.SearchAllSubDirectories, item.Header.ToString)(0)
-            Dim range As TextRange
-            Dim fStream As FileStream
-            If File.Exists(fileName) Then
-                range = New TextRange(RichTextBox1.Document.ContentStart, RichTextBox1.Document.ContentEnd)
-                fStream = New FileStream(fileName, FileMode.Open)
-                range.Load(fStream, DataFormats.Text)
-                fStream.Close()
+            ElseIf item.Header.ToString.Contains(".json") Then
+                Dim fileName As String = My.Computer.FileSystem.GetFiles(projectS, FileIO.SearchOption.SearchAllSubDirectories, item.Header.ToString)(0)
+                Dim range As TextRange
+                Dim fStream As FileStream
+                If File.Exists(fileName) Then
+                    range = New TextRange(RichTextBox1.Document.ContentStart, RichTextBox1.Document.ContentEnd)
+                    fStream = New FileStream(fileName, FileMode.Open)
+                    range.Load(fStream, DataFormats.Text)
+                    fStream.Close()
+                    SaveButton.IsEnabled = False
 
+                End If
+            ElseIf item.Header.ToString.Contains(".exe") Then
+                Process.Start(My.Computer.FileSystem.GetFiles(projectS, FileIO.SearchOption.SearchAllSubDirectories, item.Header.ToString)(0))
+            Else
+                Try
+                    Dim fileName As String = My.Computer.FileSystem.GetFiles(projectS, FileIO.SearchOption.SearchAllSubDirectories, item.Header.ToString)(0)
+                    Dim range As TextRange
+                    Dim fStream As FileStream
+                    If File.Exists(fileName) Then
+                        range = New TextRange(RichTextBox1.Document.ContentStart, RichTextBox1.Document.ContentEnd)
+                        fStream = New FileStream(fileName, FileMode.Open)
+                        range.Load(fStream, DataFormats.Text)
+                        fStream.Close()
+                        SaveButton.IsEnabled = False
+
+                    End If
+                Catch ex As Exception
+
+                End Try
             End If
-        ElseIf item.Header.ToString.Contains(".exe") Then
-            RunGame()
         Else
-            Dim fileName As String = My.Computer.FileSystem.GetFiles(projectS, FileIO.SearchOption.SearchAllSubDirectories, item.Header.ToString)(0)
-            Dim range As TextRange
-            Dim fStream As FileStream
-            If File.Exists(fileName) Then
-                range = New TextRange(RichTextBox1.Document.ContentStart, RichTextBox1.Document.ContentEnd)
-                fStream = New FileStream(fileName, FileMode.Open)
-                range.Load(fStream, DataFormats.Text)
-                fStream.Close()
 
-            End If
         End If
-
 
     End Sub
     Dim window12 = New Window1
@@ -340,15 +374,7 @@ Public Class MainUI
     End Sub
 
 
-    Private Sub MarkAsM_Click(sender As Object, e As RoutedEventArgs)
-        Dim item As TreeViewItem = TryCast(treeView1.SelectedItem, TreeViewItem)
 
-
-        Dim w As StreamWriter = File.AppendText(IO.Path.Combine(projectS, "modedfiles.txt"
-                                                ))
-        w.WriteLine(item.Header.ToString)
-        w.Close()
-    End Sub
 
     Private Sub eMod_Click(sender As Object, e As RoutedEventArgs)
         Dim exMod = New ExportMod
@@ -436,6 +462,12 @@ Public Class MainUI
         Dim file As New FileStream(sb.ToString, FileMode.Create)
         t.Save(file, System.Windows.DataFormats.Text)
         file.Close()
+
+
+
+
+        item.Foreground = New SolidColorBrush(Colors.LightGreen)
+        SaveButton.IsEnabled = False
     End Sub
 
     Private Sub CloseWorkspaceButton_Click(sender As Object, e As RoutedEventArgs)
@@ -452,6 +484,7 @@ Public Class MainUI
             projectS = ""
             Title = "RPGEditor UI Beta"
             LaunchGame1.IsEnabled = False
+            ExportModButton.IsEnabled = False
         End If
     End Sub
 
@@ -516,6 +549,14 @@ Public Class MainUI
     End Sub
 
     Private Sub AddFileButton_Click(sender As Object, e As RoutedEventArgs)
+        Dim dlg As New [OpenFileDialog]
+        If dlg.ShowDialog = True Then
+            My.Computer.FileSystem.CopyFile(dlg.FileName, projectS)
+            treeView1.Items.Clear()
+            LoadDirectories()
+        Else
+
+        End If
 
 
     End Sub
@@ -534,5 +575,43 @@ Public Class MainUI
             End Try
         Next
         ProcessExited()
+    End Sub
+
+    Private Sub MarkAsMod_Click(sender As Object, e As RoutedEventArgs)
+        Dim item As TreeViewItem = TryCast(treeView1.SelectedItem, TreeViewItem)
+        Using addInfo = File.AppendText(projectS & "\moddedfiles.txt")
+            addInfo.WriteLine(item.Header.ToString)
+
+        End Using
+
+        ' Append text to an existing file named "WriteLines.txt".
+
+
+    End Sub
+
+    Private Sub ExportModButton_Click(sender As Object, e As RoutedEventArgs)
+        bw.RunWorkerAsync()
+    End Sub
+
+    Private Sub RichTextBox1_TextChanged(sender As Object, e As TextChangedEventArgs)
+
+    End Sub
+
+    Private Sub CrazyWindowButton_Click(sender As Object, e As RoutedEventArgs)
+        Dim cw = New CrazyWindow
+        cw.Show()
+    End Sub
+
+    Private Sub ModPatcherButton_Click(sender As Object, e As RoutedEventArgs)
+        Try
+            Console.WriteLine("Launching ModPatcher.")
+            MsgBox(strpath & "\Plugins\ModPatcher\ModPatcher.exe")
+            Process.Start(strpath & "Plugins\ModPatcher\ModPatcher.exe")
+        Catch ex As Exception
+            Console.WriteLine("Failed.")
+            Console.WriteLine(ex.ToString)
+        End Try
+
+
     End Sub
 End Class
