@@ -2,16 +2,29 @@
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:RPGEditor"
+                  xmlns:fluent="urn:fluent-ribbon"
     StartupUri="MainUI.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <!--Attach Default Fluent Control's Theme-->
-                <ResourceDictionary Source="pack://application:,,,/Fluent;Component/Themes/Office2013/Generic.xaml" />
-                <ResourceDictionary Source="Themes/Office2013/Office2013.MSControls.Core.Implicit.xaml" />
-                <ResourceDictionary Source="Themes/Office2013/Office2013.MSControls.Toolkit.Implicit.xaml" />
-              
+            <ResourceDictionary Source="pack://application:,,,/Fluent;Component/Themes/Office2013/Generic.xaml" />
+            <ResourceDictionary Source="Themes/Office2013/Office2013.MSControls.Core.Implicit.xaml" />
+            <ResourceDictionary Source="Themes/Office2013/Office2013.MSControls.Toolkit.Implicit.xaml" />
+            <ResourceDictionary>
+                <Color x:Key="{x:Static fluent:MetroColors.ThemeColorKey}">#3671e7</Color>
+
+            </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
+  <!--Light Screen-->
+    <!--   
+    <ResourceDictionary Source="pack://application:,,,/Fluent;Component/Themes/Office2013/Generic.xaml" />
+    <ResourceDictionary Source="Themes/Office2013/Office2013.MSControls.Core.Implicit.xaml" />
+    <ResourceDictionary Source="Themes/Office2013/Office2013.MSControls.Toolkit.Implicit.xaml" />
+    <ResourceDictionary>
+        <Color x:Key="{x:Static fluent:MetroColors.ThemeColorKey}">#3671e7</Color>
+
+    </ResourceDictionary>
+    </ResourceDictionary.MergedDictionaries> -->
 </Application>

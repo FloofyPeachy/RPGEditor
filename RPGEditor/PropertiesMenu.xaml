@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="PropertiesMenu"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:RPGEditor"
+             mc:Ignorable="d" 
+             d:DesignHeight="365" d:DesignWidth="2982" Height="365" Width="282">
+    <Grid>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="106,346,0,0" TextWrapping="Wrap" Text="Properties" VerticalAlignment="Top"/>
+        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="159,11,0,0" VerticalAlignment="Top" Width="117" BorderBrush="{x:Null}" Background="{x:Null}">
+            <ComboBox.Resources>
+               
+                    <!-- color of ComboBoxItem -->
+                    <SolidColorBrush x:Key="{x:Static SystemColors.WindowBrushKey}" />
+                </ComboBox.Resources>
+                
+            <ComboBoxItem Content="Game Excutable" Background="{x:Null}"/>
+            <ComboBoxItem Content="Code File"/>
+        </ComboBox>
+        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Workspace Property:" VerticalAlignment="Top"/>
+
+    </Grid>
+</UserControl>

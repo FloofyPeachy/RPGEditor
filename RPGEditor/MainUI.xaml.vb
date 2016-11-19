@@ -21,18 +21,33 @@ Public Class MainUI
     Dim strpath As String = New Uri(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().CodeBase)).LocalPath
     Dim strpathlocal = New Uri(strpath).LocalPath
     Dim installdir = strpath
+    Dim mountfolder As String
     Public process1 As Process
+    Dim configfie As New IniFile
+    Public WorkspaceExcetion As New Exception("The workspace cannot be loaded.")
     Public Sub New()
 
-
-        ' This call is required by the designer.
-
         InitializeComponent()
-        autosaveDispatcherTimer.Interval = New TimeSpan(0, 0, 20)
-        AddHandler autosaveDispatcherTimer.Tick, AddressOf autosaveDispatcherTimer_Click
-        ' Add any initialization after the InitializeComponent() call.
+
+
+        'Loads config.
+        configfie.Load(strpath & "\config.ini")
+
+        'Loads colors.
+        If configfie.GetKeyValue("user_settings", "usebackgroundimage") = "true" Then
+            Me.Background = New ImageSourceConverter().ConvertFromString(configfie.GetKeyValue("user_settings", "backgroundimage"))
+        Else
+            Me.Background = New SolidColorBrush(ColorConverter.ConvertFromString(configfie.GetKeyValue("user_settings", "backgroundcolor")))
+        End If
+        'Checks if we should go into Normal mode or Editor mode.
+        If configfie.GetKeyValue("user_settings", "editormode") = "true" Then
+
+        End If
+
+        'Loads Skins
         autosaveDispatcherTimer.Start()
-        ' Add any initialization after the InitializeComponent() call.
+        CreateWorkspace.warningiconpath = strpath + "/material/warning.png"
+        StartPage.littlesquidicon = strpath + "/material/squidchibi.png"
         LoadWorkspace.LargeIcon = strpathlocal + "\material\create.png"
         CloseWorkspaceButton.LargeIcon = strpathlocal + "\material\close.png"
         WorkspaceSettingsButton.LargeIcon = strpathlocal + "\material\settings.png"
@@ -42,14 +57,13 @@ Public Class MainUI
         AboutButton.LargeIcon = strpath + "\about.png"
         StopButton.LargeIcon = strpath + "\material\stop.png"
         ExportModButton.LargeIcon = strpath + "\material\build.png"
+        MapEditorLoadButton.LargeIcon = strpath + "\material\load.png"
+        LoadSkinButton.LargeIcon = strpath + "\material\brush.png"
+        FileMenuItem.Icon = strpath + "\material\file.png"
         If Environment.GetCommandLineArgs(0).ToLower() = "\batch" Then
 
         End If
     End Sub
-    Public Sub autosaveDispatcherTimer_Click()
-        textBlock.Text = "Saved workspace."
-    End Sub
-
 
     Private Sub LoadWorkspace_Click(sender As Object, e As RoutedEventArgs)
 
@@ -89,8 +103,6 @@ Public Class MainUI
         Dim strPath As String = System.IO.Path.GetDirectoryName(
         System.Reflection.Assembly.GetExecutingAssembly().CodeBase)
 
-        AddHandler Window1._process.Exited, AddressOf ProcessExited
-
         dispatchertimer1.Interval = New TimeSpan(0, 0, 5)
         bw.WorkerReportsProgress = True
         AddHandler bw.DoWork, AddressOf backgroundWorker1_DoWork
@@ -98,7 +110,11 @@ Public Class MainUI
         AddHandler bw.RunWorkerCompleted, AddressOf backgroundWorker1_RunWorkerCompleted
 
         AnimatePauseGame()
-
+        Dim sp = New ClosableTab
+        sp.Content = New StartPage
+        tabControl.Items.Add(sp)
+        sp.Focus()
+        sp.Title = "Start Page"
     End Sub
     Public Sub PluginItem_Click()
 
@@ -127,14 +143,18 @@ Public Class MainUI
     End Sub
     Public Sub LoadDirectories()
 
+        If Directory.Exists(projectS) Then
+            Me.treeView1.Items.Add(Me.GetItem(New DirectoryInfo(projectS)))
 
-        Me.treeView1.Items.Add(Me.GetItem(New DirectoryInfo(projectS)))
+            workspaceloaded = True
+            LaunchGame1.IsEnabled = True
+            Title = "RPGEditor UI Beta - " + New DirectoryInfo(projectS).Name
+            Console.WriteLine("Workspace: " + New DirectoryInfo(projectS).Name)
 
-        workspaceloaded = True
-        LaunchGame1.IsEnabled = True
-        Title = "RPGEditor UI Beta - " + New DirectoryInfo(projectS).Name
-        Console.WriteLine("Workspace: " + New DirectoryInfo(projectS).Name)
+        Else
+            Throw New DirectoryNotFoundException("The workspace directory cannot be loaded.")
 
+        End If
     End Sub
     Private Sub backgroundWorker1_DoWork(ByVal sender As System.Object,
    ByVal e As DoWorkEventArgs)
@@ -155,7 +175,7 @@ Public Class MainUI
 
         ZipFile.CreateFromDirectory(projectS & "\exporttemp", projectS & "\ModExport.zip")
 
-
+        My.Computer.FileSystem.DeleteDirectory(projectS & "\exporttemp", FileIO.DeleteDirectoryOption.DeleteAllContents)
 
     End Sub
 
@@ -304,18 +324,28 @@ Public Class MainUI
                 Dim sa = My.Computer.FileSystem.GetFiles(projectS, FileIO.SearchOption.SearchAllSubDirectories, item.Header.ToString)(0)
 
                 Dim converter = New ImageSourceConverter()
-                image.Source = DirectCast(converter.ConvertFromString(sa), ImageSource)
+
                 SaveButton.IsEnabled = True
 
 
 
 
             ElseIf item.Header.ToString.Contains(".json") Then
+
+
+
                 Dim fileName As String = My.Computer.FileSystem.GetFiles(projectS, FileIO.SearchOption.SearchAllSubDirectories, item.Header.ToString)(0)
                 Dim range As TextRange
                 Dim fStream As FileStream
                 If File.Exists(fileName) Then
-                    range = New TextRange(RichTextBox1.Document.ContentStart, RichTextBox1.Document.ContentEnd)
+                    Dim theTabItem As New ClosableTab()
+                    Dim TextEditorInside1 = New TextEditorInside
+
+                    theTabItem.Content = TextEditorInside1
+                    theTabItem.Title = New FileInfo(My.Computer.FileSystem.GetFiles(projectS, FileIO.SearchOption.SearchAllSubDirectories, item.Header.ToString)(0)).Name.ToString
+                    tabControl.Items.Add(theTabItem)
+                    theTabItem.Focus()
+                    range = New TextRange(TextEditorInside1.textBox.Document.ContentStart, TextEditorInside1.textBox.Document.ContentEnd)
                     fStream = New FileStream(fileName, FileMode.Open)
                     range.Load(fStream, DataFormats.Text)
                     fStream.Close()
@@ -324,13 +354,70 @@ Public Class MainUI
                 End If
             ElseIf item.Header.ToString.Contains(".exe") Then
                 Process.Start(My.Computer.FileSystem.GetFiles(projectS, FileIO.SearchOption.SearchAllSubDirectories, item.Header.ToString)(0))
+            ElseIf item.Header.ToString.Contains(".zip") Then
+
+
+                MkDir(projectS & "\" & item.Header.ToString.Split(".zip")(0))
+                mountfolder = projectS & "\" & item.Header.ToString
+                Dim mountfolderItem As New TreeViewItem
+
+                ZipFile.ExtractToDirectory(My.Computer.FileSystem.GetFiles(projectS, FileIO.SearchOption.SearchAllSubDirectories, item.Header.ToString)(0), projectS & "\" & item.Header.ToString.Split(".zip")(0))
+                Me.treeView1.Items.Add(Me.GetItem(New DirectoryInfo(projectS & "\" & item.Header.ToString.Split(".zip")(0))))
+
+                For Each treeviewitem1 In treeView1.Items
+                    If treeviewitem1.Header.ToString = New DirectoryInfo(projectS & "\" & item.Header.ToString.Split(".zip")(0)).Name Then
+                        treeviewitem1.Foreground = New SolidColorBrush(Colors.Purple)
+                        treeviewitem1.tooltip = "This item has been mounted from a zip file."
+                    End If
+                Next
+                ZipMountTabGroup1.Visibility = Visibility.Visible
+                Dim unmountContextMenu As New MenuItem
+
+                ZipMountTabGroup1.Visibility = Visibility.Visible
+                UnMountTabItem.Group = ZipMountTabGroup1
+                UnMountTabItem.Visibility = Visibility.Visible
+
+                UnMountTabItem.Visibility = Visibility.Visible
+                AddHandler UnMountButton.Click, Sub()
+
+                                                    Try
+                                                        For Each treeviewitem1 In treeView1.Items
+                                                            If treeviewitem1.Header.ToString = New DirectoryInfo(projectS & "\" & item.Header.ToString.Split(".zip")(0)).Name Then
+                                                                treeView1.Items.Remove(treeviewitem1)
+                                                                Console.WriteLine(mountfolder)
+                                                                Directory.Delete(projectS & "\" & item.Header.ToString.Split(".zip")(0), True)
+                                                            End If
+                                                        Next
+                                                    Catch ex As Exception
+
+                                                    End Try
+                                                    mountfolder = ""
+                                                    ZipMountTabGroup1.Visibility = Visibility.Hidden
+
+                                                    ZipMountTabGroup1.Visibility = Visibility.Hidden
+                                                    UnMountTabItem.Group = ZipMountTabGroup1
+                                                    UnMountTabItem.Visibility = Visibility.Hidden
+
+                                                    UnMountTabItem.Visibility = Visibility.Hidden
+                                                    MsgBox("Unmounted.")
+                                                End Sub
+
+                Console.WriteLine("WorkspaceMounted:" + New DirectoryInfo(mountfolder).Name)
+
             Else
                 Try
                     Dim fileName As String = My.Computer.FileSystem.GetFiles(projectS, FileIO.SearchOption.SearchAllSubDirectories, item.Header.ToString)(0)
                     Dim range As TextRange
                     Dim fStream As FileStream
                     If File.Exists(fileName) Then
-                        range = New TextRange(RichTextBox1.Document.ContentStart, RichTextBox1.Document.ContentEnd)
+                        Dim theTabItem As New ClosableTab()
+                        Dim TextEditorInside1 = New TextEditorInside
+
+                        theTabItem.Content = TextEditorInside1
+                        theTabItem.Title = New FileInfo(My.Computer.FileSystem.GetFiles(projectS, FileIO.SearchOption.SearchAllSubDirectories, item.Header.ToString)(0)).Name.ToString
+                        tabControl.Items.Add(theTabItem)
+                        theTabItem.Focus()
+                        range = New TextRange(TextEditorInside1.textBox.Document.ContentStart, TextEditorInside1.textBox.Document.ContentEnd)
                         fStream = New FileStream(fileName, FileMode.Open)
                         range.Load(fStream, DataFormats.Text)
                         fStream.Close()
@@ -346,7 +433,7 @@ Public Class MainUI
         End If
 
     End Sub
-    Dim window12 = New Window1
+
     Public Sub RunPlugin(ByVal PluginName As String)
 
         Dim strPath As String = System.IO.Path.GetDirectoryName(
@@ -354,16 +441,9 @@ Public Class MainUI
 
     End Sub
 
+    'Create new Workspace Button
 
-    Private Sub cWorkspace_Click(sender As Object, e As RoutedEventArgs)
-        Dim cWorkspace1 = New CreateWorkspace
-        cWorkspace1.Show()
-    End Sub
 
-    Private Sub oWorkspace_Click(sender As Object, e As RoutedEventArgs)
-        Dim lWorkspace1 = New LoadAWorkspace
-        lWorkspace1.Show()
-    End Sub
 
     Private myStoryboard As Storyboard
     Public Sub AnimatePauseGame()
@@ -382,8 +462,7 @@ Public Class MainUI
     End Sub
 
     Private Sub mf_Click(sender As Object, e As RoutedEventArgs)
-        Dim mFiles = New ModdedFiles
-        mFiles.Show()
+
 
 
     End Sub
@@ -423,7 +502,15 @@ Public Class MainUI
         Dim item As TreeViewItem = TryCast(treeView1.SelectedItem, TreeViewItem)
 
         Dim fs As IO.FileStream = IO.File.OpenWrite(My.Computer.FileSystem.GetFiles(projectS, FileIO.SearchOption.SearchAllSubDirectories, item.Header.ToString)(0))
-        Dim RTBText As New TextRange(RichTextBox1.Document.ContentStart, RichTextBox1.Document.ContentEnd)
+        Dim theTabItem As New ClosableTab()
+        Dim TextEditorInside1 = New TextEditorInside
+
+        theTabItem.Content = TextEditorInside1
+        theTabItem.Title = New FileInfo(My.Computer.FileSystem.GetFiles(projectS, FileIO.SearchOption.SearchAllSubDirectories, item.Header.ToString)(0)).Name.ToString
+        tabControl.Items.Add(theTabItem)
+        theTabItem.Focus()
+
+        Dim RTBText As New TextRange(TextEditorInside1.textBox.Document.ContentStart, TextEditorInside1.textBox.Document.ContentEnd)
         RTBText.Save(fs, DataFormats.Text)
         fs.Close()
         fs.Dispose()
@@ -440,13 +527,13 @@ Public Class MainUI
     Public Sub RunGame()
         process1 = Process.Start(projectS + "\Game.exe")
 
-        toolBar.Background = New SolidColorBrush(Color.FromRgb(255, 108, 0))
+
         LaunchGame1.IsEnabled = False
         StopButton.IsEnabled = True
         process1.EnableRaisingEvents = True
         AddHandler process1.Exited, Sub()
 
-                                        Me.Dispatcher.Invoke(System.Windows.Threading.DispatcherPriority.SystemIdle, TimeSpan.FromSeconds(1), New Action(Sub() toolBar.Background = New SolidColorBrush(ColorConverter.ConvertFromString("#FF4283CD"))))
+
 
                                         Me.Dispatcher.Invoke(DispatcherPriority.SystemIdle, TimeSpan.FromSeconds(1), New Action(Sub() StopButton.IsEnabled = False))
                                         Me.Dispatcher.Invoke(DispatcherPriority.SystemIdle, TimeSpan.FromSeconds(1), New Action(Sub() LaunchGame1.IsEnabled = True))
@@ -458,7 +545,14 @@ Public Class MainUI
     Private Sub SaveButton_Click(sender As Object, e As RoutedEventArgs)
         Dim item As TreeViewItem = TryCast(treeView1.SelectedItem, TreeViewItem)
         Dim sb = My.Computer.FileSystem.GetFiles(projectS, FileIO.SearchOption.SearchAllSubDirectories, item.Header.ToString)(0)
-        Dim t As New TextRange(RichTextBox1.Document.ContentStart, RichTextBox1.Document.ContentEnd)
+        Dim theTabItem As New ClosableTab()
+        Dim TextEditorInside1 = New TextEditorInside
+
+        theTabItem.Content = TextEditorInside1
+        theTabItem.Title = New FileInfo(My.Computer.FileSystem.GetFiles(projectS, FileIO.SearchOption.SearchAllSubDirectories, item.Header.ToString)(0)).Name.ToString
+        tabControl.Items.Add(theTabItem)
+        theTabItem.Focus()
+        Dim t As New TextRange(TextEditorInside1.textBox.Document.ContentStart, TextEditorInside1.textBox.Document.ContentEnd)
         Dim file As New FileStream(sb.ToString, FileMode.Create)
         t.Save(file, System.Windows.DataFormats.Text)
         file.Close()
@@ -494,8 +588,7 @@ Public Class MainUI
 
     Private Sub button_Click(sender As Object, e As RoutedEventArgs)
 
-        WorkspaceSettingsTab.Visibility = Visibility.Hidden
-        WorkspaceSettingsTab.IsSelected = False
+
 
     End Sub
 
@@ -611,6 +704,39 @@ Public Class MainUI
             Console.WriteLine("Failed.")
             Console.WriteLine(ex.ToString)
         End Try
+
+
+    End Sub
+
+    Private Sub treeView1_MouseRightButtonDown_1(sender As Object, e As MouseButtonEventArgs)
+
+    End Sub
+
+    Private Sub MapEditorButton_Click(sender As Object, e As RoutedEventArgs)
+        UnfinshedWindow.note = "Hello. This is unfinshed. 
+What this feature is going to be is something I have been thinking about for a while.
+A Map Editor. What this is going to use is .remap files as map files. "
+        Dim UW = New UnfinshedWindow
+
+        UW.ShowDialog()
+    End Sub
+
+    Private Sub AssetManagerButton_Click(sender As Object, e As RoutedEventArgs)
+        Dim assetsmanager = New AssetsManager
+        assetsmanager.Show()
+    End Sub
+
+
+
+    Private Sub RibbonWindow_KeyDown(sender As Object, e As Input.KeyEventArgs)
+
+    End Sub
+
+    Private Sub WorkspaceCreateButton_Click(sender As Object, e As RoutedEventArgs)
+
+    End Sub
+
+    Private Sub FileMenuItem_Click(sender As Object, e As RoutedEventArgs)
 
 
     End Sub

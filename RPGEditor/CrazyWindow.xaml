@@ -11,8 +11,8 @@
         <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="62,73,0,0" TextWrapping="Wrap" Text="Wow" VerticalAlignment="Top"/>
         <Button x:Name="button" Content="Atempt to load a non-existant project" HorizontalAlignment="Left" Height="30" Margin="36,98,0,0" VerticalAlignment="Top" Width="226" Background="White"/>
         <Button x:Name="button1" Content="Add a random thing to Treeview" HorizontalAlignment="Left" Height="31" Margin="277,97,0,0" VerticalAlignment="Top" Width="237"/>
-        <Button x:Name="button2" Content="Just crash the program" HorizontalAlignment="Left" Height="33" Margin="48,153,0,0" VerticalAlignment="Top" Width="221"/>
-        <Button x:Name="button3" Content="Play a sound, then crash the program" HorizontalAlignment="Left" Height="29" Margin="282,156,0,0" VerticalAlignment="Top" Width="225"/>
+        <Button x:Name="button2" Content="Just crash the program" HorizontalAlignment="Left" Height="33" Margin="35,151,0,0" VerticalAlignment="Top" Width="221"/>
+        <Button x:Name="button3" Content="Play a sound, then crash the program" HorizontalAlignment="Left" Height="29" Margin="269,154,0,0" VerticalAlignment="Top" Width="252"/>
 
     </Grid>
 </Window>

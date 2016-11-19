@@ -1,22 +1,20 @@
-﻿<Window x:Class="CreateWorkspace"
+﻿<fluent:RibbonWindow x:Class="CreateWorkspace"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RPGEditor"
-        mc:Ignorable="d"
-        Title="CreateWorkspace" Height="507" Width="794" Loaded="Window_Loaded">
+                xmlns:fluent="urn:fluent-ribbon"
+        mc:Ignorable="d" Height="337" Width="573" WindowStyle="ToolWindow">
     <Grid>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="199,10,0,0" TextWrapping="Wrap" Text="Create a workspace" VerticalAlignment="Top" FontSize="24"/>
-        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="112,349,0,0" TextWrapping="Wrap" Text="Workspace Name:" VerticalAlignment="Top" FontSize="18"/>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="260,350,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="353"/>
-        <Button x:Name="button" Content="Create" HorizontalAlignment="Left" Height="36" Margin="310,440,0,0" VerticalAlignment="Top" Width="156"/>
-        <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Margin="95,397,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" Text="RPG Maker Project Dir(Or Game DIR)"/>
-        <TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="23" Margin="391,398,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="307"/>
-        <Button x:Name="button1" Content=":" HorizontalAlignment="Left" Height="24" Margin="715,404,0,0" VerticalAlignment="Top" Width="34" RenderTransformOrigin="1.324,0.542"/>
-        <CheckBox x:Name="checkBox" Content="Clone Project Dir" HorizontalAlignment="Left" Margin="181,451,0,0" VerticalAlignment="Top" IsChecked="True"/>
-        <Separator HorizontalAlignment="Left" Height="15" Margin="0,334,0,0" VerticalAlignment="Top" Width="786"/>
-        <Image x:Name="image" HorizontalAlignment="Left" Height="85" Margin="10,50,0,0" VerticalAlignment="Top" Width="90"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="18,16,0,0" TextWrapping="Wrap" Text="Create a Workspace" VerticalAlignment="Top" FontFamily="Montserrat" FontSize="20"/>
+        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="20,43,0,0" TextWrapping="Wrap" Text="This is the thing that you use to make a workspace. So you can do stuff." VerticalAlignment="Top" FontFamily="Montserrat" Width="438"/>
+        <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Margin="33,69,0,0" TextWrapping="Wrap" Text="Workspace Name:" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="135,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="269"/>
+        <TextBlock x:Name="textBlock3" HorizontalAlignment="Left" Margin="33,111,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="59" Margin="66,192,0,0" VerticalAlignment="Top" Width="67"/>
+        <TextBlock x:Name="textBlock4" HorizontalAlignment="Left" Margin="136,214,0,0" TextWrapping="Wrap" Text="RPGEditor only supports RPGMaker MV at the momment." VerticalAlignment="Top" FontFamily="Montserrat"/>
+        <Rectangle Fill="#FFFFFF05" HorizontalAlignment="Left" Height="55" Margin="56,195,0,0" VerticalAlignment="Top" Width="7"/>
 
     </Grid>
-</Window>
+</fluent:RibbonWindow>

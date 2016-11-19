@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="StartPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:RPGEditor"
+             mc:Ignorable="d" 
+         d:DesignHeight="650" d:DesignWidth="1174" Width="1174" Height="650" Loaded="UserControl_Loaded" Background="White">
+    <Grid>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="17,2,0,0" TextWrapping="Wrap" Text="Welcome to RPGEditor." VerticalAlignment="Top" FontSize="24" FontFamily="Montserrat"/>
+        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="28,40,0,0" TextWrapping="Wrap" Text="Here is the Start Page! Where you can... do things from here. That is about it. Why am I still typing" VerticalAlignment="Top" Width="591" FontFamily="Montserrat"/>
+        <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Margin="38,133,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Montserrat">
+       <Hyperlink
+    Click="Hyperlink_Click"
+  >
+    New Workspace
+  </Hyperlink>
+
+
+        </TextBlock>
+        <TextBlock x:Name="textBlock3" HorizontalAlignment="Left" Margin="38,178,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Montserrat"><Hyperlink
+               Click="Hyperlink_Click_1"
+  ><Run Text="Open Workspace"/></Hyperlink></TextBlock>
+        <Image x:FieldModifier="public" x:Name="image" HorizontalAlignment="Left" Height="107" Margin="1040,464,0,0" VerticalAlignment="Top" Width="129"/>
+        <TextBlock x:Name="textBlock4" HorizontalAlignment="Left" Margin="905,511,0,0" TextWrapping="Wrap" Text="Made by PeachMaster" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock5" HorizontalAlignment="Left" Margin="859,539,0,0" TextWrapping="Wrap" Text="Kenny(Image not made by me)" VerticalAlignment="Top"/>
+
+    </Grid>
+</UserControl>

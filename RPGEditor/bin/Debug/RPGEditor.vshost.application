@@ -7,14 +7,14 @@
     <framework targetVersion="4.5.2" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="RPGEditor.exe.manifest" size="19889">
+    <dependentAssembly dependencyType="install" codebase="RPGEditor.exe.manifest" size="25171">
       <assemblyIdentity name="RPGEditor.exe" version="1.0.0.2" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>wLzuhxbmSBAbcTZhyOBG19QQ2z5eBMLNUySYGyCh788=</dsig:DigestValue>
+        <dsig:DigestValue>0PIHpmrH0bZGjMOG1tsC7bdJDrr/fG3+fbMxfehDXao=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

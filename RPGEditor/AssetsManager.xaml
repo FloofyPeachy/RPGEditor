@@ -1,0 +1,14 @@
+﻿<Window x:Class="AssetsManager"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RPGEditor"
+        mc:Ignorable="d"
+        Title="AssetsManager" Height="351.441" Width="676.84" Loaded="Window_Loaded">
+    <Grid>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="65,10,0,0" TextWrapping="Wrap" Text="Audio:" VerticalAlignment="Top" FontSize="16"/>
+        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="74" Margin="24,50,0,0" VerticalAlignment="Top" Width="146" MouseDoubleClick="listBox_MouseDoubleClick"/>
+        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="75,31,0,0" TextWrapping="Wrap" Text="BGM" VerticalAlignment="Top"/>
+    </Grid>
+</Window>

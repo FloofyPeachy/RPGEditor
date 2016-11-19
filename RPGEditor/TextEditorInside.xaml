@@ -1,0 +1,12 @@
+﻿<UserControl x:Class="TextEditorInside"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:RPGEditor"
+             mc:Ignorable="d" 
+             d:DesignHeight="650" d:DesignWidth="1174" Width="1174" Height="650">
+    <Grid>
+        <RichTextBox x:FieldModifier="public" x:Name="textBox" HorizontalAlignment="Left" Height="649"  VerticalAlignment="Top" Width="1174" BorderBrush="{x:Null}"/>
+    </Grid>
+</UserControl>

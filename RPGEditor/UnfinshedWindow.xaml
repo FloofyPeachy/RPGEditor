@@ -1,0 +1,14 @@
+﻿<Window x:Class="UnfinshedWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RPGEditor"
+        mc:Ignorable="d"
+        Title="Unfinshed Feature" Height="309.322" Width="580.508" Loaded="Window_Loaded">
+    <Grid>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="182,7,0,0" TextWrapping="Wrap" Text="Unfinshed Feature :/" VerticalAlignment="Top" FontSize="22"/>
+        <TextBox x:Name="textBox12" HorizontalAlignment="Left" Height="236" Margin="16,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="549" Text="{}{notes}"/>
+
+    </Grid>
+</Window>

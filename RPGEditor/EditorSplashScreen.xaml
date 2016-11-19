@@ -1,0 +1,15 @@
+﻿<Window x:Class="EditorSplashScreen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RPGEditor"
+        mc:Ignorable="d"
+        Title="Editor Mode" Height="263.5" Width="466.5" ResizeMode="NoResize" Loaded="Window_Loaded">
+    <Grid>
+        <Image  x:Name="image" HorizontalAlignment="Left" Height="100" Margin="175,37,0,0" VerticalAlignment="Top" Width="100"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="143,147,0,0" TextWrapping="Wrap" Text="Editor Mode is on." VerticalAlignment="Top" FontSize="20" FontFamily="Kano regular"/>
+        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="68,179,0,0" TextWrapping="Wrap" Text="Most things will be off, but the minimal features will still be on." VerticalAlignment="Top" Width="334"/>
+
+    </Grid>
+</Window>

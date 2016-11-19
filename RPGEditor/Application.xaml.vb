@@ -1,6 +1,10 @@
 ﻿Class Application
+    Public logger = New Logging.Log
+    Public skinpath As String = ""
+    Public Sub Application_Startup() Handles MyBase.Startup
+        Console.WriteLine("Welcome to RPGEditor!")
 
-    ' Application-level events, such as Startup, Exit, and DispatcherUnhandledException
-    ' can be handled in this file.
+    End Sub
+
 
 End Class

@@ -104,6 +104,26 @@ About
 InitializeComponent
 </summary>
 </member>
+<member name="T:RPGEditor.AssetsManager">
+<summary>
+AssetsManager
+</summary>
+</member>
+<member name="M:RPGEditor.AssetsManager.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
+<member name="P:RPGEditor.ClosableTab.Title">
+ <summary>
+ Property - Set the Title of the Tab
+ </summary>
+</member>
+<member name="M:RPGEditor.CloseableHeader.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
 <member name="T:RPGEditor.CopyProject">
 <summary>
 CopyProject
@@ -124,22 +144,32 @@ CrazyWindow
 InitializeComponent
 </summary>
 </member>
-<member name="T:RPGEditor.CreateNewWorkspace">
-<summary>
-CreateNewWorkspace
-</summary>
-</member>
-<member name="M:RPGEditor.CreateNewWorkspace.InitializeComponent">
-<summary>
-InitializeComponent
-</summary>
-</member>
 <member name="T:RPGEditor.CreateWorkspace">
 <summary>
 CreateWorkspace
 </summary>
 </member>
 <member name="M:RPGEditor.CreateWorkspace.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
+<member name="T:RPGEditor.DevUI">
+<summary>
+DevUI
+</summary>
+</member>
+<member name="M:RPGEditor.DevUI.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
+<member name="T:RPGEditor.EditorSplashScreen">
+<summary>
+EditorSplashScreen
+</summary>
+</member>
+<member name="M:RPGEditor.EditorSplashScreen.InitializeComponent">
 <summary>
 InitializeComponent
 </summary>
@@ -154,42 +184,12 @@ ExportMod
 InitializeComponent
 </summary>
 </member>
-<member name="T:RPGEditor.FirstTimeSetupWorkspace">
-<summary>
-FirstTimeSetupWorkspace
-</summary>
-</member>
-<member name="M:RPGEditor.FirstTimeSetupWorkspace.InitializeComponent">
-<summary>
-InitializeComponent
-</summary>
-</member>
 <member name="T:RPGEditor.HelpWindow">
 <summary>
 HelpWindow
 </summary>
 </member>
 <member name="M:RPGEditor.HelpWindow.InitializeComponent">
-<summary>
-InitializeComponent
-</summary>
-</member>
-<member name="T:RPGEditor.LoadAWorkspace">
-<summary>
-LoadAWorkspace
-</summary>
-</member>
-<member name="M:RPGEditor.LoadAWorkspace.InitializeComponent">
-<summary>
-InitializeComponent
-</summary>
-</member>
-<member name="T:RPGEditor.MainTextEditor">
-<summary>
-MainTextEditor
-</summary>
-</member>
-<member name="M:RPGEditor.MainTextEditor.InitializeComponent">
 <summary>
 InitializeComponent
 </summary>
@@ -204,82 +204,72 @@ MainUI
 InitializeComponent
 </summary>
 </member>
-<member name="T:RPGEditor.MediaPlayer">
+<member name="T:RPGEditor.MapEditorWindow">
 <summary>
-MediaPlayer
+MapEditorWindow
 </summary>
 </member>
-<member name="M:RPGEditor.MediaPlayer.InitializeComponent">
-<summary>
-InitializeComponent
-</summary>
-</member>
-<member name="T:RPGEditor.ModdedFiles">
-<summary>
-ModdedFiles
-</summary>
-</member>
-<member name="M:RPGEditor.ModdedFiles.InitializeComponent">
+<member name="M:RPGEditor.MapEditorWindow.InitializeComponent">
 <summary>
 InitializeComponent
 </summary>
 </member>
-<member name="T:RPGEditor.PluginList">
+<member name="T:RPGEditor.SkinManagerScreen">
 <summary>
-PluginList
+SkinManagerScreen
 </summary>
 </member>
-<member name="M:RPGEditor.PluginList.InitializeComponent">
-<summary>
-InitializeComponent
-</summary>
-</member>
-<member name="T:RPGEditor.SplashScreen">
-<summary>
-SplashScreen
-</summary>
-</member>
-<member name="M:RPGEditor.SplashScreen.InitializeComponent">
+<member name="M:RPGEditor.SkinManagerScreen.InitializeComponent">
 <summary>
 InitializeComponent
 </summary>
 </member>
-<member name="T:RPGEditor.StartupScreen">
+<member name="T:RPGEditor.StartPage">
 <summary>
-StartupScreen
+StartPage
 </summary>
 </member>
-<member name="M:RPGEditor.StartupScreen.InitializeComponent">
+<member name="F:RPGEditor.StartPage._image">
 <summary>
-InitializeComponent
+image Name Field
 </summary>
 </member>
-<member name="T:RPGEditor.UseWithPlugin">
-<summary>
-UseWithPlugin
-</summary>
-</member>
-<member name="M:RPGEditor.UseWithPlugin.InitializeComponent">
+<member name="M:RPGEditor.StartPage.InitializeComponent">
 <summary>
 InitializeComponent
 </summary>
 </member>
-<member name="T:RPGEditor.Window1">
+<member name="T:RPGEditor.TextEditorInside">
 <summary>
-Window1
+TextEditorInside
 </summary>
 </member>
-<member name="M:RPGEditor.Window1.InitializeComponent">
+<member name="F:RPGEditor.TextEditorInside._textBox">
+<summary>
+textBox Name Field
+</summary>
+</member>
+<member name="M:RPGEditor.TextEditorInside.InitializeComponent">
 <summary>
 InitializeComponent
 </summary>
 </member>
-<member name="T:RPGEditor.WorkspaceLoad">
+<member name="T:RPGEditor.UnfinshedWindow">
 <summary>
-WorkspaceLoad
+UnfinshedWindow
 </summary>
 </member>
-<member name="M:RPGEditor.WorkspaceLoad.InitializeComponent">
+<member name="M:RPGEditor.UnfinshedWindow.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
+<member name="T:RPGEditor.WorkspaceSettings">
+<summary>
+WorkspaceSettings
+</summary>
+</member>
+<member name="M:RPGEditor.WorkspaceSettings.InitializeComponent">
 <summary>
 InitializeComponent
 </summary>
@@ -309,12 +299,12 @@ MainWindow
 InitializeComponent
 </summary>
 </member>
-<member name="T:RPGEditor.MyFirstRibbonProject.MyFirstWindow">
+<member name="T:RPGEditor.PropertiesMenu">
 <summary>
-MyFirstWindow
+PropertiesMenu
 </summary>
 </member>
-<member name="M:RPGEditor.MyFirstRibbonProject.MyFirstWindow.InitializeComponent">
+<member name="M:RPGEditor.PropertiesMenu.InitializeComponent">
 <summary>
 InitializeComponent
 </summary>

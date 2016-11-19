@@ -174,6 +174,18 @@
     </dependentAssembly>
   </dependency>
   <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Discord.Net.dll" size="281088">
+      <assemblyIdentity name="Discord.Net" version="0.9.5.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>HBK9XP5crgdvuC3VF9GZsuMoXQg3OkC1mr+Aukk5cQ4=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Fluent.dll" size="1096704">
       <assemblyIdentity name="Fluent" version="4.0.3.394" publicKeyToken="3E436E32A8C5546F" language="neutral" processorArchitecture="msil" />
       <hash>
@@ -198,86 +210,158 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Orc.Wizard.dll" size="49152">
-      <assemblyIdentity name="Orc.Wizard" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Newtonsoft.Json.dll" size="526336">
+      <assemblyIdentity name="Newtonsoft.Json" version="9.0.0.0" publicKeyToken="30AD4FE6B2A6AEED" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>6/n7Wzh1emiqlujT9b6wb3jHhPfXg1ymTkw+wIEsEpY=</dsig:DigestValue>
+        <dsig:DigestValue>V14w+Y5OpCyeUW7ci7sprYtQsXOj5rNrW6OeEzzOlAY=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Nito.AsyncEx.dll" size="97792">
+      <assemblyIdentity name="Nito.AsyncEx" version="3.0.1.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>Asd7Bb6dzpKzznMpctLYooXcARNSUis0HyEvZ7xx39U=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Nito.AsyncEx.Concurrent.dll" size="29184">
+      <assemblyIdentity name="Nito.AsyncEx.Concurrent" version="3.0.1.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>JZv+mNzd4DGBhc4SLCYOGNKsaKsgcpBOAZxkC+l2YJs=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Nito.AsyncEx.Enlightenment.dll" size="8192">
+      <assemblyIdentity name="Nito.AsyncEx.Enlightenment" version="3.0.1.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>yGEcnyaN6QwWyJEHR9SdW9ThB9GYGPLnFKN2EQXDvZ8=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Orc.Wizard.dll" size="62976">
+      <assemblyIdentity name="Orc.Wizard" version="1.1.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>AvedUkt11+gUDwupWtMsoDa3RAFeHAhwBHY5tHqdbeM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="de\Orc.Wizard.resources.dll" size="4096">
-      <assemblyIdentity name="Orc.Wizard.resources" version="1.0.0.0" language="de" processorArchitecture="msil" />
+      <assemblyIdentity name="Orc.Wizard.resources" version="1.1.0.0" language="de" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>AAqm4mUMITIUFMEiWKGzKJlaCkrWtoqzdjqiDpoza80=</dsig:DigestValue>
+        <dsig:DigestValue>3AVhs/Ij2bu/1zD3hY3MgRKmWUSrWlJQpkxDkwawbEI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="es\Orc.Wizard.resources.dll" size="4096">
-      <assemblyIdentity name="Orc.Wizard.resources" version="1.0.0.0" language="es" processorArchitecture="msil" />
+      <assemblyIdentity name="Orc.Wizard.resources" version="1.1.0.0" language="es" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>w0o6BlFkGQNWL9hIggcJgxRjwUbJKn7BA2clZll4HUU=</dsig:DigestValue>
+        <dsig:DigestValue>cCLqJG86j9gX8+iaQfH4bJErKcHbF5C73Rx1xhMwWXQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="fr\Orc.Wizard.resources.dll" size="4096">
-      <assemblyIdentity name="Orc.Wizard.resources" version="1.0.0.0" language="fr" processorArchitecture="msil" />
+      <assemblyIdentity name="Orc.Wizard.resources" version="1.1.0.0" language="fr" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>te9euYVkia2iKpTdrzliKR07OPSOV46yyDF8493Us0g=</dsig:DigestValue>
+        <dsig:DigestValue>rP9m2KMFQU6F6VH95GBMojhnDHPXfYQkUpfDR2zPPGk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="nl\Orc.Wizard.resources.dll" size="4096">
-      <assemblyIdentity name="Orc.Wizard.resources" version="1.0.0.0" language="nl" processorArchitecture="msil" />
+      <assemblyIdentity name="Orc.Wizard.resources" version="1.1.0.0" language="nl" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>3yy3mEYMMXKbrI+0bRag25fm3wxgPOpYS7LIwEZVH4Y=</dsig:DigestValue>
+        <dsig:DigestValue>ITE6xS4xpMwhPGLVMZILylA/2NFkcJWYhxqFrMmJX94=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ru\Orc.Wizard.resources.dll" size="4096">
-      <assemblyIdentity name="Orc.Wizard.resources" version="1.0.0.0" language="ru" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ru\Orc.Wizard.resources.dll" size="4608">
+      <assemblyIdentity name="Orc.Wizard.resources" version="1.1.0.0" language="ru" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>Iwku7eRhS6m3GMhVkA7hNCklWqN1U2Lx3+6iiSiPUwY=</dsig:DigestValue>
+        <dsig:DigestValue>jR+fi0pwMJ0039OdbHYDVxEBOYMw884AzcLcVZxxZes=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="RPGEditor.exe" size="666112">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="zh-Hans\Orc.Wizard.resources.dll" size="4608">
+      <assemblyIdentity name="Orc.Wizard.resources" version="1.1.0.0" language="zh-Hans" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>ZdagehHW5Z/NgfZ3AvpSOZBHDFSWWrSc1hX16/8392M=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="RestSharp.dll" size="168960">
+      <assemblyIdentity name="RestSharp" version="105.2.3.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>8kwZBHeWCymvIJJrTZ+Nd5HBSE8+fMJaOKOSjPNTwFw=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="RPGEditor.exe" size="663552">
       <assemblyIdentity name="RPGEditor" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>7NZM10+LpAKi1QvUOy/eDONMjBOcDyk1SoRpuQUlWcg=</dsig:DigestValue>
+        <dsig:DigestValue>LtE0YzBttxWxYThRXKn7Y11bUrh+kWXuGYicT78pQnw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -318,6 +402,18 @@
     </dependentAssembly>
   </dependency>
   <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="WebSocket4Net.dll" size="90624">
+      <assemblyIdentity name="WebSocket4Net" version="0.14.1.0" publicKeyToken="EB4E154B696BF72A" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>LiUy8Aqhg0RVcGbTwqmpXbsOgQk+SJQVRwTeUIB5cNU=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="WPFToolkit.dll" size="467288">
       <assemblyIdentity name="WPFToolkit" version="3.5.40128.1" publicKeyToken="31BF3856AD364E35" language="neutral" processorArchitecture="msil" />
       <hash>
@@ -329,13 +425,13 @@
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="RPGEditor.exe.config" size="559">
+  <file name="RPGEditor.exe.config" size="806">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>zJeXa8/kDd8s5JFxKigLY3kJGGSvPru53yVlx0aNUYA=</dsig:DigestValue>
+      <dsig:DigestValue>0R2oZJdvCzHy2T9k+fbCHU25WUof4IK60xN4NFYhU8E=</dsig:DigestValue>
     </hash>
   </file>
   <compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1">
